@@ -1,10 +1,15 @@
 <app-header></app-header>
-<div class="container">
+
+<div class="container" *ngIf="isStartseite()">
   <div class="row">
     <div class="col-md-12">
-      <app-lernen></app-lernen>
-      <app-training></app-training>
-      <app-pruefung></app-pruefung>
+      <div class="imgx">
+    <img style="margin-bottom: 60px;"  src="assets/images.jpg" alt="LPIC" width="400" height="250"/>
+  </div>
+  <h1 style="margin-bottom: 80px;">Linux Professional Institute</h1>
+  
+  <h3 style="margin-bottom: 20px;">Willkommen</h3>
     </div>
   </div>
 </div>
+<router-outlet></router-outlet>
