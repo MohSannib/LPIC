@@ -1,0 +1,18 @@
+.imgx{
+    text-align: center;
+    }
+    
+    h1{
+    text-align: center;    
+    }
+
+    .confirm-button{
+        width: 100px;
+        height: 40px;
+    }
+
+    .page-center{
+        display: flex;
+        justify-content: center;
+        
+    }
