@@ -1,16 +1,36 @@
 <div class="container">
-    <div class="row">
+  <div class="row">
       <div class="col-md-12">
-        <div class="imgx">
-      <img style="margin-bottom: 60px;"  src="assets/images.jpg" alt="LPIC" width="400" height="250"/>
-    </div>
-    <h1 style="margin-bottom: 80px;">Linux Professional Institute</h1>
-        <div class="row">
-            <div class="page-center">
-                <button class="btn btn-success confirm-button" type="submit">Start</button>
-            </div>
-        </div>
-    
-      </div>
-    </div>
+          <div class="imgx">
+              <img style="margin-bottom: 60px;" src="assets/images.jpg" alt="LPIC" width="400" height="250" />
+          </div>
+          <h1 style="margin-bottom: 60px;">Linux Professional Institute</h1>
+
+          <!-- Dropdown menu 1 -->
+<div class="row">
+  <div class="page-center">
+      <select id="dropdown1" [(ngModel)]="selectedOption1">
+          <option value="lpic-101">LPIC-1 101</option>
+          <option value="lpic-102">LPIC-1 102</option>
+      </select>
   </div>
+</div>
+
+<!-- Dropdown menu 2 -->
+<div class="row">
+  <div class="page-center">
+      <select id="dropdown2" [(ngModel)]="selectedOption2">
+          <option value="single-choice">Single Choice</option>
+          <option value="multiple-choice">Multiple Choice</option>
+          <option value="fillin">Fillin</option>
+      </select>
+  </div>
+</div>
+          <div class="row">
+              <div class="page-center">
+                  <button class="btn btn-success confirm-button" (click)="redirectToPage()">Start</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
