@@ -7,7 +7,11 @@ import { PruefungComponent } from './pruefung/pruefung.component';
 import { SingleChoiceComponent } from './single-choice/single-choice.component';
 import { MultipleChoiceComponent } from './multiple-choice/multiple-choice.component'; 
 import { FillinComponent } from './fillin/fillin.component';
- 
+import { TrainingsiComponent } from './trainingsi/trainingsi.component';
+import { TrainingmuComponent } from './trainingmu/trainingmu.component';
+import { TrainingmaComponent } from './trainingma/trainingma.component';
+import { AllquestionsComponent } from './allquestions/allquestions.component'; 
+
 
 const routes: Routes = [
   { path: 'lernen', component: LernenComponent },
@@ -16,7 +20,11 @@ const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: 'single', component: SingleChoiceComponent},
   { path: 'multiple', component: MultipleChoiceComponent},
-  { path: 'manual', component: FillinComponent}
+  { path: 'manual', component: FillinComponent},
+  { path: 'trainingsi', component: TrainingsiComponent},
+  { path: 'trainingmu', component: TrainingmuComponent},
+  { path: 'trainingma', component: TrainingmaComponent},
+  { path: 'allquestions', component: AllquestionsComponent}
 ];
 
 @NgModule({

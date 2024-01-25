@@ -11,6 +11,10 @@ import { PruefungComponent } from './pruefung/pruefung.component';
 import { SingleChoiceComponent } from './single-choice/single-choice.component';
 import { MultipleChoiceComponent } from './multiple-choice/multiple-choice.component';
 import { FillinComponent } from './fillin/fillin.component';
+import { AllquestionsComponent } from './allquestions/allquestions.component';
+import { TrainingsiComponent } from './trainingsi/trainingsi.component';
+import { TrainingmuComponent } from './trainingmu/trainingmu.component';
+import { TrainingmaComponent } from './trainingma/trainingma.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,11 @@ import { FillinComponent } from './fillin/fillin.component';
     PruefungComponent,
     SingleChoiceComponent,
     MultipleChoiceComponent,
-    FillinComponent 
+    FillinComponent,
+    AllquestionsComponent,
+    TrainingsiComponent,
+    TrainingmuComponent,
+    TrainingmaComponent 
   ],
   imports: [
     BrowserModule,

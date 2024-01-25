@@ -1,1 +1,23 @@
-<p>pruefung works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="imgx">
+                <img style="margin-bottom: 60px;" src="assets/images.jpg" alt="LPIC" width="400" height="250" />
+            </div>
+            <h1 style="margin-bottom: 30px;">Linux Professional Institute</h1>
+            <h3>Prüfung:</h3>
+            <div class="dropdown-container">
+              <select [(ngModel)]="firstDropdownValue" class="form-control form-control-sm">
+                  <option value="allquestions">LPIC-1 101</option>
+              </select>
+            </div>
+                    
+            <div class="row">
+              <div class="page-center">
+                <button (click)="navigateToPage()" class="btn btn-success confirm-button">Start</button>
+              </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  
