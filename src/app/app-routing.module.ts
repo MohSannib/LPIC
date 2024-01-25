@@ -14,9 +14,9 @@ const routes: Routes = [
   { path: 'training', component: TrainingComponent },
   { path: 'pruefung', component: PruefungComponent },
   { path: '', redirectTo: '/', pathMatch: 'full' },
-  { path: 'single-choice', component: SingleChoiceComponent},
-  { path: 'multiple-choice', component: MultipleChoiceComponent},
-  { path: 'fillin', component: FillinComponent}
+  { path: 'single', component: SingleChoiceComponent},
+  { path: 'multiple', component: MultipleChoiceComponent},
+  { path: 'manual', component: FillinComponent}
 ];
 
 @NgModule({

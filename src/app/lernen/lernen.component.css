@@ -16,3 +16,29 @@
         justify-content: center;
         
     }
+    .dropdown-container {
+        display: flex;
+        justify-content: center;
+      }
+      
+      .dropdown-container select {
+        margin: 0 auto;
+      }
+      .second-dropdown {
+        margin-top: 10px;
+      }
+    
+      .form-control {
+        width: 500px; 
+        height: 30px;
+        font-size: 14px; 
+        
+      }
+
+      h3{
+        margin-left: 110px;    
+        }
+
+        .confirm-button{
+            margin-top: 20px;
+        }

@@ -4,32 +4,25 @@
           <div class="imgx">
               <img style="margin-bottom: 60px;" src="assets/images.jpg" alt="LPIC" width="400" height="250" />
           </div>
-          <h1 style="margin-bottom: 60px;">Linux Professional Institute</h1>
-
-          <!-- Dropdown menu 1 -->
-<div class="row">
-  <div class="page-center">
-      <select id="dropdown1" [(ngModel)]="selectedOption1">
-          <option value="lpic-101">LPIC-1 101</option>
-          <option value="lpic-102">LPIC-1 102</option>
-      </select>
-  </div>
-</div>
-
-<!-- Dropdown menu 2 -->
-<div class="row">
-  <div class="page-center">
-      <select id="dropdown2" [(ngModel)]="selectedOption2">
-          <option value="single-choice">Single Choice</option>
-          <option value="multiple-choice">Multiple Choice</option>
-          <option value="fillin">Fillin</option>
-      </select>
-  </div>
-</div>
+          <h1 style="margin-bottom: 30px;">Linux Professional Institute</h1>
+          <h3>Lernen:</h3>
+          <div class="dropdown-container">
+            <select [(ngModel)]="firstDropdownValue" class="form-control form-control-sm">
+                <option value="LPIC-1">LPIC-1 101</option>
+            </select>
+          </div>
+          <div class="dropdown-container second-dropdown">
+            <select [(ngModel)]="secondDropdownValue" class="form-control form-control-sm">
+              <option value="single">Single Choice</option>
+              <option value="multiple">Multiple Choice</option>
+              <option value="manual">Fillin</option>
+            </select>
+          </div>
+          
           <div class="row">
-              <div class="page-center">
-                  <button class="btn btn-success confirm-button" (click)="redirectToPage()">Start</button>
-              </div>
+            <div class="page-center">
+              <button (click)="navigateToPage()" class="btn btn-success confirm-button">Start</button>
+            </div>
           </div>
       </div>
   </div>
