@@ -1,1 +1,14 @@
-<p>fillin works!</p>
+<h2>Lernen</h2>
+
+<div class="container" *ngFor="let question of questions; let i = index" style="border: 1px solid #ccc; padding: 10px; margin-bottom: 20px; display: flex; flex-direction: column;">
+  <div style="text-align: center; font-size: larger; font-weight: bold; margin-bottom: 10px;">
+    Frage {{i+1}} / {{questions.length}}
+  </div>
+  <p>{{ question.frage }}</p>
+  <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+    <p *ngIf="question.showAnswer"> {{ question.selectedAnswer ? question.selectedAnswer.option : '' }}</p>
+  </div>
+  <div style="display: flex; justify-content: flex-end;">
+    <button class="btn btn-success" (click)="toggleAnswer($event, i)">Antwort zeigen</button>
+  </div>
+</div>

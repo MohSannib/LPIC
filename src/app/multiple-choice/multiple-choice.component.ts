@@ -35,17 +35,22 @@ export class MultipleChoiceComponent implements OnInit {
     });
   }
 
-  showAnswer(question: Question): void {
-    // Reset selected property for all answers
-    question.antworten.forEach(answer => answer.selected = false);
+  showAnswer(question: Question, index: number): void {
+    // Reset selected property for all answers in all questions
+    this.questions.forEach((q, i) => {
+      if (i !== index) {
+        q.antworten.forEach(answer => answer.selected = false);
+      }
+    });
   
-    // Find and mark all correct answers
+    // Find and mark all correct answers for the current question
     question.antworten.forEach(answer => {
       if (answer.istRichtig) {
-        answer.selected = true;
+        answer.selected = !answer.selected; // Toggle selected property
       }
     });
   }
+  
   
   
   
