@@ -1,1 +1,9 @@
-<p>multiple-choice works!</p>
+<h2>Lernen</h2>
+
+<div class="container" *ngFor="let question of questions" style="border: 1px solid #ccc; padding: 10px; margin-bottom: 20px;">
+  <p>{{ question.frage }}</p>
+  <div *ngFor="let answer of question.antworten" [style.color]="getAnswerColor(answer)">
+    {{ answer.option }}
+  </div>
+  <button class="btn btn-success" style="margin-top: 10px;" *ngIf="!question.selectedAnswer" (click)="showAnswer(question)">Antwort zeigen</button>
+</div>

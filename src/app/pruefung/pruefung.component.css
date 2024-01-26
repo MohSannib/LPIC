@@ -1,44 +1,63 @@
 .imgx{
-    text-align: center;
+  text-align: center;
+  }
+  
+  h1{
+  text-align: center;    
+  }
+
+  .confirm-button{
+      width: 100px;
+      height: 40px;
+  }
+
+  .page-center{
+      display: flex;
+      justify-content: center;
+      
+  }
+  .dropdown-container {
+    margin-top: 40px; 
     }
     
-    h1{
-    text-align: center;    
+    .dropdown-container select {
+      margin: 0 auto;
+    }
+    .second-dropdown {
+      margin-top: 10px;
+    }
+  
+    .form-control {
+      width: 500px; 
+      height: 30px;
+      font-size: 14px; 
+      
     }
 
-    .confirm-button{
-        width: 100px;
-        height: 40px;
+    h3 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin-top: 380px; /* Füge eine geeignete Marge je nach Bedarf hinzu */
+      margin-left: 15px;
     }
 
-    .page-center{
+      .confirm-button{
+          margin-top: 20px;
+      }
+
+      .container {
+        max-width: 800px; /* Ändere die Breite nach Bedarf */
+        margin: 0 auto; /* Zentriere den Container horizontal */
+      }
+      .col-md-12 {
+        text-align: center;
+      }
+      .container {
+        height: 100%;
         display: flex;
-        justify-content: center;
-        
-    }
-    .dropdown-container {
-        display: flex;
+        align-items: center;
         justify-content: center;
       }
       
-      .dropdown-container select {
-        margin: 0 auto;
-      }
-      .second-dropdown {
-        margin-top: 10px;
-      }
-    
-      .form-control {
-        width: 500px; 
-        height: 30px;
-        font-size: 14px; 
-        
-      }
-
-      h3{
-        margin-left: 110px;    
-        }
-
-        .confirm-button{
-            margin-top: 20px;
-        }
+      

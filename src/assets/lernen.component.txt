@@ -1,0 +1,47 @@
+
+.col-md-12 {
+  position: relative;
+}
+
+h3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 380px; /* Füge eine geeignete Marge je nach Bedarf hinzu */
+  margin-left: 15px;
+}
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.col-md-12 {
+  text-align: center;
+}
+
+/* Optional: Zentriere auch die Dropdowns und den Button */
+.dropdown-container {
+  margin-top: 40px; 
+}
+
+.confirm-button {
+  margin-top: 20px; /* oder eine geeignete Marge je nach Bedarf */
+}
+
+/* Optional: Füge eine maximale Breite für das Hauptcontainer hinzu, um es responsiv zu halten */
+.container {
+  max-width: 800px; /* Ändere die Breite nach Bedarf */
+  margin: 0 auto; /* Zentriere den Container horizontal */
+}
+
+/* Optional: Stile für die imgx Klasse */
+.imgx {
+  text-align: center;
+}

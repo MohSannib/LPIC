@@ -15,6 +15,8 @@ import { AllquestionsComponent } from './allquestions/allquestions.component';
 import { TrainingsiComponent } from './trainingsi/trainingsi.component';
 import { TrainingmuComponent } from './trainingmu/trainingmu.component';
 import { TrainingmaComponent } from './trainingma/trainingma.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { TrainingmaComponent } from './trainingma/trainingma.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
