@@ -1,1 +1,22 @@
-<p>trainingma works!</p>
+<h2>Training</h2>
+<div class="container" style="border: 1px solid #ccc; padding: 10px; margin-bottom: 20px; display: flex; flex-direction: column;">
+  <div *ngIf="!message" style="text-align: center; font-size: larger; font-weight: bold; margin-bottom: 10px;">
+    Frage {{ currentIndex + 1 }} / {{ questions.length }}
+  </div>
+  <div *ngIf="!message" style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+    <p>{{ questions[currentIndex]?.frage }}</p>
+    <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+      <input type="text" [(ngModel)]="userAnswer" [ngStyle]="{'border-color': userAnswerBorder}" style="width: 100%;">
+    </div>
+    <div style="margin-top: 10px;">
+      <button class="btn btn-primary" (click)="previousQuestion()" [disabled]="currentIndex === 0" style="margin-right: 5px;">Vorherige Frage</button>
+      <button class="btn btn-primary" (click)="nextQuestion()" [disabled]="currentIndex === questions.length - 1" style="margin-right: 5px;">Nächste Frage</button>
+      <button class="btn btn-success" (click)="checkAnswer()">Antwort überprüfen</button>
+      <button class="btn btn-danger" (click)="showResults()">Ende</button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="message" style="border: 1px solid #ccc; padding: 10px; text-align: center;">
+  <p>{{ message }}</p>
+</div>
