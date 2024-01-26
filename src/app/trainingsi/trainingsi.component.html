@@ -1,1 +1,39 @@
-<p>trainingsi works!</p>
+<h2>Training</h2>
+
+<div class="container" *ngIf="!showResult && questions.length > 0">
+  <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 20px;">
+    <div style="text-align: center; font-size: larger; font-weight: bold;">
+      <span style="display: inline-block;">Frage {{currentQuestionIndex + 1}} / {{questions.length}}</span>
+    </div>
+    <div style="border-bottom: 1px solid #ccc; padding-bottom: 10px;">
+      <p>{{ questions[currentQuestionIndex].frage }}</p>
+    </div>
+    <div *ngFor="let answer of questions[currentQuestionIndex].antworten" [style.color]="getAnswerColor(answer)">
+      <label>
+        <input type="radio" [value]="answer" (change)="selectAnswer(answer)" [checked]="answer.selected">
+        {{ answer.option }}
+      </label>
+    </div>
+    <div style="clear: both;"></div> 
+    <div style="margin-top: 10px;">
+      <button class="btn btn-primary" (click)="showPreviousQuestion()" [disabled]="currentQuestionIndex === 0">Vorherige Frage</button>
+      <span style="margin-right: 5px;"></span> 
+      <button class="btn btn-primary" (click)="showNextQuestion()" [disabled]="currentQuestionIndex === questions.length - 1">Nächste Frage</button>
+      <span style="margin-right: 5px;"></span> 
+      <button class="btn btn-success" (click)="showAnswer(questions[currentQuestionIndex], currentQuestionIndex)">Antwort zeigen</button>
+      <span style="margin-right: 5px;"></span>
+      <button class="btn btn-danger" (click)="endTest()">Ende</button> 
+    </div>
+  </div>
+</div>
+
+<div class="container" *ngIf="showResult">
+  <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 20px;">
+    <p>Richtige Antworten: {{ correctAnswers }}</p>
+    <p>Falsche Antworten: {{ wrongAnswers }}</p>
+  </div>
+</div>
+
+<div *ngIf="questions.length === 0">Loading...</div>
+
+
