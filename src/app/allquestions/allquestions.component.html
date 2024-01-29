@@ -1,1 +1,47 @@
-<p>allquestions works!</p>
+<h2>Prüfung</h2>
+<div *ngIf="currentQuestion">
+  <div class="container" style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+    <p style="text-align: center; font-size: larger; font-weight: bold;">Frage {{currentIndex + 1}} / {{questions.length}}</p>
+    <p>{{ currentQuestion.frage }}</p>
+
+    <div *ngIf="currentQuestion.type === 'manual'">
+      <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+        <input type="text" [(ngModel)]="currentQuestion.userAnswer" style="width: 100%;" #userInput [style.border]="userAnswerBorder">
+      </div>
+    </div>
+
+    <div *ngIf="currentQuestion.type === 'checkbox'">
+      <div *ngFor="let answer of currentQuestion.antworten">
+        <label>
+          <input type="checkbox" [(ngModel)]="answer.selected">
+          {{ answer.option }}
+        </label>
+      </div>
+    </div>
+
+    <div *ngIf="currentQuestion.type === 'radio'">
+      <div *ngFor="let answer of currentQuestion.antworten">
+        <label>
+          <input type="radio" [(ngModel)]="currentQuestion.selectedAnswer" [value]="answer">
+          {{ answer.option }}
+        </label>
+      </div>
+    </div>
+
+    <div style="margin-top: 10px;">
+      <button class="btn btn-primary" (click)="previousQuestion()" [disabled]="currentIndex === 0" style="margin-right: 5px;">Vorherige Frage</button>
+      <button class="btn btn-primary" (click)="nextQuestion()" [disabled]="currentIndex === questions.length - 1" style="margin-right: 5px;">Nächste Frage</button>
+      <button class="btn btn-success" (click)="submitAnswer()">Submit</button>
+      <button class="btn btn-danger" (click)="calculateResults(); showResults()" style="margin-right: 5px;">Ende</button>
+    </div>
+  </div>
+
+  <div class="container" *ngIf="message">
+    <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 20px;">
+      <p>Richtige Antworten: {{ correctAnswers }}</p>
+      <p>Falsche Antworten: {{ wrongAnswers }}</p>
+    </div>
+  </div>
+
+  <div *ngIf="questions.length === 0">Laden...</div>
+</div>

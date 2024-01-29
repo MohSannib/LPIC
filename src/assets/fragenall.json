@@ -1,0 +1,32 @@
+[
+    {
+      "frage": "Which program updates the database that is used by the locate command? (Specify ONLY the command without any path or parameters).",
+      "antworten": [
+        { "option": "updatedb", "istRichtig": true }
+      ],
+      "type": "manual"
+    },
+    {
+      "frage": "In order to display all currently mounted filesystems, which of the following commands could be used? (Choose two.)",
+      "antworten": [
+        { "option": "A. cat /proc/self/mounts", "istRichtig": true },
+        { "option": "B. free", "istRichtig": false },
+        { "option": "C. lsmounts", "istRichtig": false },
+        { "option": "D. mount", "istRichtig": true },
+        { "option": "E. cat /proc/filesystems", "istRichtig": false }
+      ],
+      "type": "checkbox"
+    },
+    {
+      "frage": "What is the correct way to set the default systemd boot target to multi-user?",
+      "antworten": [
+        { "option": "A. systemctl isolate multi-user.target", "istRichtig": false },
+        { "option": "B. systemctl set-runlevel multi-user.target", "istRichtig": false },
+        { "option": "C. systemctl set-boot multi-user.target", "istRichtig": false },
+        { "option": "D. systemctl set-default multi-user.target", "istRichtig": true },
+        { "option": "E. systemctl boot -p multi-user.target", "istRichtig": false }
+      ],
+      "type": "radio"
+    }
+  ]
+  
