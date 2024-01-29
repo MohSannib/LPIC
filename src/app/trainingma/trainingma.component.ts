@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 interface Question {
@@ -27,6 +27,8 @@ export class TrainingmaComponent {
   userAnswer: string = '';
   userAnswerBorder: string = 'inherit';
   message: string = '';
+  correctAnswers: number = 0;
+  wrongAnswers: number = 0;
 
   constructor(private http: HttpClient) { }
 
@@ -70,31 +72,22 @@ export class TrainingmaComponent {
   }
 
   checkAnswer(): void {
-    const currentQuestion = this.questions[this.currentIndex];
-    const correctAnswer = currentQuestion.antworten.find(answer => answer.istRichtig)?.option.toLowerCase();
-
-    if (this.userAnswer.toLowerCase() === correctAnswer) {
-      this.userAnswerBorder = 'green';
-      this.message = 'Correct Answer!';
-    } else {
-      this.userAnswerBorder = 'red';
-      this.message = 'Wrong Answer!';
+    const currentQuestion = this.currentQuestion;
+    if (currentQuestion) {
+        const userEnteredAnswer = this.userAnswer.trim();
+        const correctAnswer = currentQuestion.antworten[0].option.trim();
+        if (userEnteredAnswer === correctAnswer) {
+            this.userAnswerBorder = '2px solid green'; 
+            this.correctAnswers++;
+        } else {
+            this.userAnswerBorder = '2px solid red'; 
+            this.wrongAnswers++;
+        }
+        currentQuestion.showAnswer = true;
     }
   }
 
   showResults(): void {
-    let correctAnswers = 0;
-    let wrongAnswers = 0;
-
-    for (const question of this.questions) {
-      const correctAnswer = question.antworten.find(answer => answer.istRichtig)?.option.toLowerCase();
-      if (this.userAnswer.toLowerCase() === correctAnswer) {
-        correctAnswers++;
-      } else {
-        wrongAnswers++;
-      }
-    }
-
-    this.message = `Correct Answers: ${correctAnswers}\nWrong Answers: ${wrongAnswers}`;
+    this.message = `Correct Answers: ${this.correctAnswers}\nWrong Answers: ${this.wrongAnswers}`;
   }
 }
