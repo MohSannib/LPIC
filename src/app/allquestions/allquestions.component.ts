@@ -17,7 +17,8 @@ interface Question {
   type: QuestionType;
   userAnswer: string;
   showAnswer: boolean;
-  submitted: boolean; // New property to track submission
+  submitted: boolean; 
+  examFinished: boolean;
 }
 
 @Component({
@@ -34,6 +35,8 @@ export class AllquestionsComponent {
   message = '';
   correctAnswers = 0;
   wrongAnswers = 0;
+  examFinished = false;
+  
 
   constructor(private http: HttpClient) {}
 
@@ -48,7 +51,7 @@ export class AllquestionsComponent {
           type: type,
           userAnswer: '',
           showAnswer: false,
-          submitted: false // Initialize submitted property
+          submitted: false 
         };
       });
       this.dataLoaded = true;
@@ -86,24 +89,22 @@ export class AllquestionsComponent {
     if (currentQuestion && currentQuestion.type === 'manual' && !currentQuestion.submitted) {
       const userAnswer = currentQuestion.userAnswer.trim();
       const correctAnswer = currentQuestion.antworten?.find(answer => answer.istRichtig)?.option?.trim(); // Find the correct answer
-  
+
       if (correctAnswer !== undefined) {
-        if (userAnswer !== '') { // Check if the user answer is not empty
+        if (userAnswer !== '') { 
           if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
             this.correctAnswers++;
           } else {
             this.wrongAnswers++;
           }
         } else {
-          this.wrongAnswers++; // Count empty user answer as wrong
+          this.wrongAnswers++; 
         }
       }
-  
+
       currentQuestion.submitted = true;
     }
   }
-  
-  
 
   getCorrectAnswer(question: Question): string {
     const correctAnswer = question.antworten?.find(answer => answer.istRichtig);
@@ -118,6 +119,7 @@ export class AllquestionsComponent {
   calculateResults(): void {
     let correctQuestions = 0;
     let wrongQuestions = 0;
+    this.examFinished = true;
   
     this.questions.forEach(question => {
       if (question.type === 'manual') {
@@ -133,12 +135,11 @@ export class AllquestionsComponent {
         if (question.selectedAnswers && question.selectedAnswers.length > 0) {
           anySelected = true;
   
-          // Loop through selected answers
           for (const selectedAnswer of question.selectedAnswers) {
             const correctAnswer = question.antworten?.find(answer => answer.option === selectedAnswer.option);
             if (!correctAnswer || correctAnswer.istRichtig !== selectedAnswer.selected) {
               allSelectedCorrect = false;
-              break; // Stop loop if any selected answer is incorrect
+              break; 
             }
           }
         }
@@ -150,7 +151,7 @@ export class AllquestionsComponent {
             wrongQuestions++;
           }
         } else {
-          wrongQuestions++; // Count unanswered checkbox questions as wrong
+          wrongQuestions++; 
         }
       } else if (question.type === 'radio') {
         if (question.selectedAnswer?.istRichtig) {
@@ -164,9 +165,7 @@ export class AllquestionsComponent {
     this.correctAnswers = correctQuestions;
     this.wrongAnswers = wrongQuestions;
   }
-  
 
-  
   getRemainingQuestionsCount(type: QuestionType): number {
     return this.questions.filter(question => question.type === type && !question.showAnswer).length;
   }
@@ -184,7 +183,6 @@ export class AllquestionsComponent {
         currentQuestion.selectedAnswers = currentQuestion.antworten?.filter(answer => answer.selected);
       }
 
-      // Call checkAnswer after updating selectedAnswers
       this.checkAnswer();
 
       currentQuestion.userAnswer = userAnswerTemp;
