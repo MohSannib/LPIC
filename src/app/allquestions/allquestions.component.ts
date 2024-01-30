@@ -104,6 +104,7 @@ export class AllquestionsComponent {
 
       currentQuestion.submitted = true;
     }
+    
   }
 
   getCorrectAnswer(question: Question): string {
@@ -114,6 +115,13 @@ export class AllquestionsComponent {
   showResults(): void {
     this.checkAnswer();
     this.message = `Correct Answers: ${this.correctAnswers}\nWrong Answers: ${this.wrongAnswers}`;
+  }
+
+  checkExamCompletion(): void {
+    if (this.wrongAnswers >= 7) {
+      window.alert("Prüfung verkackt weil 7 falsche antworten");
+      this.examFinished = true; // Set examFinished to true to indicate the end of the exam
+    }
   }
 
   calculateResults(): void {
@@ -139,7 +147,7 @@ export class AllquestionsComponent {
             const correctAnswer = question.antworten?.find(answer => answer.option === selectedAnswer.option);
             if (!correctAnswer || correctAnswer.istRichtig !== selectedAnswer.selected) {
               allSelectedCorrect = false;
-              break; 
+              break;
             }
           }
         }
@@ -151,7 +159,7 @@ export class AllquestionsComponent {
             wrongQuestions++;
           }
         } else {
-          wrongQuestions++; 
+          wrongQuestions++;
         }
       } else if (question.type === 'radio') {
         if (question.selectedAnswer?.istRichtig) {
@@ -164,7 +172,9 @@ export class AllquestionsComponent {
   
     this.correctAnswers = correctQuestions;
     this.wrongAnswers = wrongQuestions;
+    this.checkExamCompletion();
   }
+  
 
   getRemainingQuestionsCount(type: QuestionType): number {
     return this.questions.filter(question => question.type === type && !question.showAnswer).length;
@@ -188,8 +198,9 @@ export class AllquestionsComponent {
       currentQuestion.userAnswer = userAnswerTemp;
     }
   }
-
+  
   get currentQuestion(): Question | undefined {
     return this.questions[this.currentIndex];
   }
+  
 }
