@@ -38,7 +38,7 @@ export class AllquestionsComponent {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.http.get<any>('assets/fragenall.json').subscribe(data => {
+    this.http.get<any>('assets/fragen.json').subscribe(data => {
       this.questions = data.map((question: any) => {
         const type: QuestionType = question.type;
         return {
