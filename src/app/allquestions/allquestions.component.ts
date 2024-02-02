@@ -119,7 +119,7 @@ export class AllquestionsComponent {
 
   checkExamCompletion(): void {
     if (this.wrongAnswers >= 7) {
-      window.alert("Prüfung verkackt weil 7 falsche antworten");
+      window.alert("Prüfung abgebruchen weil 7 falsche antworten");
       this.examFinished = true; // Set examFinished to true to indicate the end of the exam
     }
   }
